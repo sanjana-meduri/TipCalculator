@@ -11,8 +11,9 @@
 @property (weak, nonatomic) IBOutlet UITextField *billField;
 @property (weak, nonatomic) IBOutlet UILabel *tipLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalLabel;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *tipControl;
-@property (weak, nonatomic) IBOutlet UIView *labelsContainerView;
+@property (weak, nonatomic) IBOutlet UILabel *labelsContainerView;
+@property (weak, nonatomic) IBOutlet UISlider *tipSlider;
+@property (weak, nonatomic) IBOutlet UILabel *tipAmt;
 
 @end
 
@@ -35,29 +36,35 @@
     if (self.billField.text.length == 0) [self hideLabels];
     else [self showLabels];
     
-    double tipPercentages[] = {0.15, 0.20, 0.25};
-    double tipPercentage = tipPercentages[self.tipControl.selectedSegmentIndex];
-    
     double bill = [self.billField.text doubleValue];
-    double tip = bill * tipPercentage;
+    double tip = bill * (self.tipSlider.value) / 100;
     double total = tip + bill;
     
     self.tipLabel.text = [NSString stringWithFormat:@"Tip: $%.2f", tip];
     self.totalLabel.text = [NSString stringWithFormat:@"Total: $%.2f", total];;
+    self.tipAmt.text = [NSString stringWithFormat:@"Tip Percent: %.0f", self.tipSlider.value];
 }
 
 - (void) hideLabels {
     [UIView animateWithDuration:0.5 animations:^{
         CGRect billFrame = self.billField.frame;
         CGRect labelsFrame = self.labelsContainerView.frame;
+        CGRect sliderFrame = self.tipSlider.frame;
+        CGRect amtFrame = self.tipAmt.frame;
         
-        billFrame.origin.y = 413;
-        labelsFrame.origin.y = 555;
+        billFrame.origin.y = 230;
+        labelsFrame.origin.y = 464;
+        sliderFrame.origin.y = 581;
+        amtFrame.origin.y = 552;
         
         self.billField.frame = billFrame;
         self.labelsContainerView.frame = labelsFrame;
+        self.tipSlider.frame = sliderFrame;
+        self.tipAmt.frame = amtFrame;
         
         self.labelsContainerView.alpha = 0;
+        self.tipSlider.alpha = 0;
+        self.tipAmt.alpha = 0;
     }];
 };
 
@@ -65,14 +72,22 @@
     [UIView animateWithDuration:0.5 animations:^{
         CGRect billFrame = self.billField.frame;
         CGRect labelsFrame = self.labelsContainerView.frame;
-        
-        billFrame.origin.y = 213;
-        labelsFrame.origin.y = 355;
-        
+        CGRect sliderFrame = self.tipSlider.frame;
+        CGRect amtFrame = self.tipAmt.frame;
+
+        billFrame.origin.y = 130;
+        labelsFrame.origin.y = 239;
+        sliderFrame.origin.y = 381;
+        amtFrame.origin.y = 352;
+
         self.billField.frame = billFrame;
         self.labelsContainerView.frame = labelsFrame;
-        
+        self.tipSlider.frame = sliderFrame;
+        self.tipAmt.frame = amtFrame;
+
         self.labelsContainerView.alpha = 1;
+        self.tipSlider.alpha = 1;
+        self.tipAmt.alpha = 1;
     }];
 };
 /*
