@@ -36,7 +36,13 @@ GIF created with [Kap](https://getkap.co/).
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+The  main challenge with building this app was getting used to Xcode and Objective-C. Other than that, it was a relatively smooth process getting the app up and running.
+
+I can use this project as a reference for:
+
+- Animation
+- Tap Gesture
+- Basics
 
 ## Credits
 
