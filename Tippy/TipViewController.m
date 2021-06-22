@@ -32,10 +32,8 @@
 }
 
 - (IBAction)updateLabels:(id)sender {
-    if (self.billField.text.length == 0)
-        [self hideLabels];
-    else
-        [self showLabels];
+    if (self.billField.text.length == 0) [self hideLabels];
+    else [self showLabels];
     
     double tipPercentages[] = {0.15, 0.20, 0.25};
     double tipPercentage = tipPercentages[self.tipControl.selectedSegmentIndex];
