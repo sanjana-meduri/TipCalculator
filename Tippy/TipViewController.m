@@ -53,7 +53,7 @@
         CGRect amtFrame = self.tipAmt.frame;
         
         billFrame.origin.y = 230;
-        labelsFrame.origin.y = 464;
+        labelsFrame.origin.y = 429;
         sliderFrame.origin.y = 581;
         amtFrame.origin.y = 552;
         
@@ -76,7 +76,7 @@
         CGRect amtFrame = self.tipAmt.frame;
 
         billFrame.origin.y = 130;
-        labelsFrame.origin.y = 239;
+        labelsFrame.origin.y = 229;
         sliderFrame.origin.y = 381;
         amtFrame.origin.y = 352;
 
