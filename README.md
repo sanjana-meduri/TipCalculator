@@ -30,7 +30,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='./Tippy.gif' width='' alt='Video Walkthrough' width=10 height=10/>
+<img src='./Tippy.gif' width='' alt='Video Walkthrough' width=200 height=500/>
 
 GIF created with [Kap](https://getkap.co/).
 
